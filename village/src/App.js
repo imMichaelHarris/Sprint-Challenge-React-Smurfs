@@ -29,10 +29,9 @@ class App extends Component {
       .catch(err => console.log(err));
   };
   deleteSmurf = smurfId => {
-    console.log(smurfId);
     axios
       .delete(`http://localhost:3333/smurfs/${smurfId}`)
-      .then(res => console.log(res))
+      .then(res => this.setState({ smurfs: res.data }))
       .catch(err => console.log(err));
   };
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server

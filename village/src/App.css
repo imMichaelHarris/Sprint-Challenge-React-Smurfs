@@ -14,16 +14,24 @@
 }
 .card {
   background: teal;
-  color: #ddd;
+  color: #eee;
   letter-spacing: 1px;
   border-radius: 10px;
   height: 200px;
-  width: 250px;
+  width: 300px;
   padding: 20px 15px;
+  margin: 10px;
 }
 .Smurf {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   height: 100%;
+}
+.close {
+  background: #fff;
+  border: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
 }
