@@ -1,7 +1,29 @@
+* {
+  box-sizing: border-box;
+}
+
 .App {
   text-align: center;
 }
 .container {
-  width: 60%;
+  width: 50%;
   margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.card {
+  background: teal;
+  color: #ddd;
+  letter-spacing: 1px;
+  border-radius: 10px;
+  height: 200px;
+  width: 250px;
+  padding: 20px 15px;
+}
+.Smurf {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 100%;
 }
