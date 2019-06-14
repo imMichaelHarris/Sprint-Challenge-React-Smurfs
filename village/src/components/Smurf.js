@@ -10,6 +10,7 @@ const Smurf = props => {
       <strong>{props.height} tall</strong>
       <p>{props.age} smurf years old</p>
     </div>
+    <Button color="info">Edit</Button>
     <Button close onClick={() => props.deleteSmurf(props.id)} />
 </Card>
   );
