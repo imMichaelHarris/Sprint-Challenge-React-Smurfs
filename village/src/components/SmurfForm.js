@@ -17,7 +17,7 @@ class SmurfForm extends Component {
     const newSmurf = {
       name: name,
       age: age,
-      height: height
+      height: height,
     }
     this.props.addSmurf(newSmurf);
     this.setState({
@@ -33,7 +33,6 @@ class SmurfForm extends Component {
   };
 
   render() {
-    console.log(this.props)
     return (
       <div className="SmurfForm">
         <form onSubmit={this.addSmurf}>
