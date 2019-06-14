@@ -1,12 +1,16 @@
 import React from 'react';
+import {Card, CardTitle, CardBody} from 'reactstrap';
+
 
 const Smurf = props => {
   return (
-    <div className="Smurf">
+    <Card>
+    <CardBody className="Smurf">
       <h3>{props.name}</h3>
       <strong>{props.height} tall</strong>
       <p>{props.age} smurf years old</p>
-    </div>
+    </CardBody>
+    </Card>
   );
 };
 
