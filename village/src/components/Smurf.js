@@ -1,5 +1,5 @@
 import React from 'react';
-import {Card, CardTitle} from 'reactstrap';
+import {Card, Button} from 'reactstrap';
 
 
 const Smurf = props => {
@@ -10,6 +10,7 @@ const Smurf = props => {
       <strong>{props.height} tall</strong>
       <p>{props.age} smurf years old</p>
     </div>
+    <Button close onClick={() => props.deleteSmurf(props.id)} />
 </Card>
   );
 };
