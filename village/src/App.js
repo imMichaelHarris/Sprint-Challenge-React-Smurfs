@@ -30,7 +30,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <SmurfForm />
+        <SmurfForm addSmurd={this.addSmurf}/>
         <Smurfs smurfs={this.state.smurfs} />
       </div>
     );
