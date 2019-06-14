@@ -7,7 +7,8 @@ class SmurfForm extends Component {
     this.state = {
       name: "",
       age: "",
-      height: ""
+      height: "",
+      editMode: true
     };
   }
 
@@ -36,13 +37,14 @@ class SmurfForm extends Component {
   render() {
     return (
       <div className="SmurfForm">
-        <Form onSubmit={this.addSmurf}>
+        <Form onSubmit={this.state.editMode ? this.editSmurf : this.addSmurf}>
           <FormGroup row>
             <Label for="name" size="lg">
               Name:
             </Label>
             <Col>
               <Input
+                required
                 bsSize="lg"
                 onChange={this.handleInputChange}
                 placeholder="name"
@@ -58,13 +60,13 @@ class SmurfForm extends Component {
             </Label>
             <Col>
               <Input
+                required
                 bsSize="lg"
                 onChange={this.handleInputChange}
                 placeholder="age"
                 value={this.state.age}
                 name="age"
                 id="age"
-                
               />
             </Col>
           </FormGroup>
@@ -74,6 +76,7 @@ class SmurfForm extends Component {
             </Label>
             <Col>
               <Input
+                required
                 bsSize="lg"
                 onChange={this.handleInputChange}
                 placeholder="height"
@@ -83,7 +86,9 @@ class SmurfForm extends Component {
               />
             </Col>
           </FormGroup>
-          <Button type="submit" color="success">Add to the village</Button>
+          <Button type="submit" color="success">
+            {this.state.editMode ? "Edit Smurf" : "Add to the village"}
+          </Button>
         </Form>
       </div>
     );

@@ -28,9 +28,13 @@ class App extends Component {
       })
       .catch(err => console.log(err));
   };
-  deleteSmurf = smurfId => {
+  editSmurf = smurfId => {
+    axios.put(`http://localhost:5000/friends/${smurfId}`)
+  }
+  deleteSmurf = smurf=> {
     axios
-      .delete(`http://localhost:3333/smurfs/${smurfId}`)
+      .delete(`http://localhost:3333/smurfs/${smurf.id}`, smurf).then(res => console.log(res))
+      .catch(err => console.log(err))
       .then(res => this.setState({ smurfs: res.data }))
       .catch(err => console.log(err));
   };
