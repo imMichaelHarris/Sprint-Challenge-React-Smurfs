@@ -10,7 +10,13 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      smurfs: []
+      smurfs: [],
+      editMode: false,
+      smurf: {
+        name: "",
+        age: "",
+        height: ""
+      }
     };
   }
 
@@ -28,13 +34,19 @@ class App extends Component {
       })
       .catch(err => console.log(err));
   };
-  editSmurf = smurfId => {
-    axios.put(`http://localhost:5000/friends/${smurfId}`)
-  }
-  deleteSmurf = smurf=> {
+  handleEditSmurf = smurf => {
     axios
-      .delete(`http://localhost:3333/smurfs/${smurf.id}`, smurf).then(res => console.log(res))
-      .catch(err => console.log(err))
+      .put(`http://localhost:5000/friends/${smurf}`)
+      .then(res => console.log(res))
+      .catch(err => console.log(err));
+  };
+  editSmurf = smurf => {
+    console.log('app edit')
+    this.setState({ ...this.state, smurf: smurf });
+  };
+  deleteSmurf = smurfId => {
+    axios
+      .delete(`http://localhost:3333/smurfs/${smurfId}`)
       .then(res => this.setState({ smurfs: res.data }))
       .catch(err => console.log(err));
   };
@@ -50,8 +62,17 @@ class App extends Component {
         <NavLink to="/form">Add new Smurf</NavLink>
         <Route
           path="/form"
-          render={props => <SmurfForm {...props} addSmurf={this.addSmurf} />}
+          render={props => (
+            <SmurfForm
+              {...props}
+              addSmurf={this.addSmurf}
+              editMode={this.state.editMode}
+              handleEditSmurf={this.handleEditSmurf}
+            smurf={{...this.state.smurf}}
+            />
+          )}
         />
+
         <Route
           exact
           path="/"
@@ -60,6 +81,7 @@ class App extends Component {
               {...props}
               smurfs={this.state.smurfs}
               deleteSmurf={this.deleteSmurf}
+              editSmurf={this.editSmurf}
             />
           )}
         />

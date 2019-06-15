@@ -8,8 +8,23 @@ class SmurfForm extends Component {
       name: "",
       age: "",
       height: "",
-      editMode: true
+      editMode: false
     };
+  }
+  componentDidMount(prevProps) {
+    console.log('props', this.props)
+    console.log('state', this.state)
+    // if (prevProps.editMode !== this.props.editMode) {
+      this.setState({
+        editMode: this.props.editMode,
+        name: this.props.smurf.name,
+        age: this.props.smurf.age,
+        height: this.props.smurf.height,
+        id: this.props.smurf.id
+      });
+      console.log('boo')
+
+    // }
   }
 
   addSmurf = event => {
@@ -30,11 +45,17 @@ class SmurfForm extends Component {
     this.props.history.push("/");
   };
 
+  // editSmurf = event => {
+  //   event.preventDefault();
+
+  // }
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
   render() {
+    console.log('form state', this.state);
+    console.log('form props', this.props)
     return (
       <div className="SmurfForm">
         <Form onSubmit={this.state.editMode ? this.editSmurf : this.addSmurf}>

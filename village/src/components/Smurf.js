@@ -12,7 +12,7 @@ const Smurf = props => {
       </div>
 
 
-        <Link to="/form">Edit</Link>
+        <Link to="/form"><button onClick={() => props.editSmurf(props)}>Edit</button></Link>
 
 
       <Button close onClick={() => props.deleteSmurf(props.id)} />
