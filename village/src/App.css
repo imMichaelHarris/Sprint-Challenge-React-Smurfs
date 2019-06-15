@@ -1,3 +1,48 @@
+* {
+  box-sizing: border-box;
+}
+
 .App {
   text-align: center;
+}
+.container {
+  width: 50%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.card {
+  background: teal;
+  color: #eee;
+  letter-spacing: 1px;
+  border-radius: 10px;
+  height: 200px;
+  width: 300px;
+  padding: 20px 15px;
+  margin: 10px;
+}
+.Smurf {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 100%;
+}
+.close {
+  position: absolute;
+  right: 15px;
+}
+.SmurfForm {
+  width: 30%;
+  margin: 0 auto;
+  background: lightcyan;
+  padding: 4em 2.5em;
+  border-radius: 10px;
+  border: 2px solid lightblue;
+}
+label {
+  width: 50px;
+}
+.card button {
+  max-width: 150px;
 }
